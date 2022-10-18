@@ -1,0 +1,93 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+
+
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
+% 参考：https://blog.csdn.net/jzwong/article/details/52399112
+
+\begin{document}
+
+李青航 SA22225226\\
+
+\noindent\textbf{31}\\
+
+穷举得，11种覆盖\\
+
+
+\noindent\textbf{38}\\
+
+用Loubere's method方法构建7阶幻方，见表1
+\begin{table}[h]
+\centering
+\caption{magic square of order 7}
+\begin{tabular}{|ccccccc|} 
+\toprule
+\multicolumn{1}{|c}{30} & 39 & 48 & 1  & 10 & 19 & 28  \\
+38                      & 47 & 7  & 9  & 18 & 27 & 29  \\
+46                      & 6  & 8  & 17 & 26 & 35 & 37  \\
+5                       & 14 & 16 & 25 & 34 & 36 & 45  \\
+13                      & 15 & 24 & 33 & 42 & 44 & 4   \\
+21                      & 23 & 32 & 41 & 43 & 3  & 12  \\
+22                      & 31 & 40 & 49 & 2  & 11 & 20  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textbf{54}\\
+
+$$A\rightarrow C \rightarrow D\rightarrow E \rightarrow B$$
+$$A\rightarrow C \rightarrow D \rightarrow F \rightarrow B$$
+$$A\rightarrow D \rightarrow E \rightarrow B$$
+$$A\rightarrow D \rightarrow F \rightarrow B$$
+$$A\rightarrow E\rightarrow B$$
+
+
+
+\noindent\textbf{57}\\
+
+这个游戏不平衡，见表2，第4、3、1位不平衡，玩家I从数量为30的堆中拿26个石头（16+8+2），使得平衡，就能使玩家I赢
+\begin{table}[h]
+\centering
+\caption{5-heap Nim}
+\begin{tabular}{c|cccccc} 
+\toprule
+\multicolumn{1}{l}{} & 2\^{}5 & 2\^{}4 & 2\^{}3 & 2\^{}2 & 2\^{}1 & 2\^{}0  \\ 
+\hline
+10                   & 0      & 0      & 1      & 0      & 1      & 0       \\
+20                   & 0      & 1      & 0      & 1      & 0      & 0       \\
+30                   & 0      & 1      & 1      & 1      & 1      & 0       \\
+40                   & 1      & 0      & 1      & 0      & 0      & 0       \\
+50                   & 1      & 1      & 0      & 0      & 1      & 0       \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textbf{67}\\
+
+记$b_i$为大师在第$i$天所下的棋局数，且有$b_i\ge 1$ ,所以有两组序列\\
+\begin{equation}
+\{b_1+b_2+b_3+...+b_i\}, 1\le i \le 77
+\end{equation}
+
+\begin{equation}
+\{b_0+b_1++b_2...+b_j+k\}, 0\le j \le 76 , b_0=0
+\end{equation}
+
+每组序列都满足单增且大小都为77，序列(1)中没有重复元素，序列(2)中也没有重复元素。
+
+序列(1)的上界为$12 \times 11 = 132$,序列(2)的上界S满足$S < b_1+b_2 + \cdots + b_{77} + k \le 12 \times 11 + 22 = 154$， 同时S为整数，可以得到$S \le 153$。
+
+综上，序列(1)和序列(2)的上界为153，也即最多有153个不同的数。而序列中一共有154个数， 由鸽巢原理序列(1)中至少有一个数$b_1+b_2 + \cdots + b_y$ 与序列(2)中的某个数$b_1+b_2 + \cdots + b_x+k$相同，满足，
+
+$$b_1+b_2+b_3+...+b_y=b_1+b_2+b_3+...+b_x+k$$
+
+可以求出存在
+$$k=b_{x+1}+...+b_y$$
+
+所以有$x+1$到$y$天，大师下了刚好22盘。
+
+\end{document}

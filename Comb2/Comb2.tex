@@ -1,0 +1,124 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb}
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
+\begin{document}
+李青航 SA22225226\\
+\textbf{15}\\
+\begin{equation}
+\nonumber
+\begin{split}
+(\neg p\wedge(p\rightarrow q))\rightarrow \neg q &\equiv \neg(\neg p\wedge(p\rightarrow q))\vee \neg q\\
+& \equiv \neg(\neg p \wedge (\neg p \vee q))\vee \neg q\\
+& \equiv \neg(\neg p )\vee \neg q\\
+& \equiv p \vee \neg q
+\end{split}
+\end{equation}
+不是重言式\\
+
+\noindent\textbf{16}\\
+\begin{equation}
+\nonumber
+\begin{split}
+(\neg q \wedge (p \rightarrow q))\rightarrow \neg p
+& \equiv \neg(\neg q \wedge(\neg p \vee q)) \vee \neg p\\
+& \equiv (q \vee \neg (\neg p \vee q)) \vee \neg p\\
+& \equiv (q \vee (p \wedge \neg q))\vee \neg p\\
+& \equiv ((q \vee p) \wedge (q \vee \neg q))\vee \neg p \\
+& \equiv ((p\vee q) \wedge T)) \vee \neg p\\
+& \equiv q \vee p\vee \neg p \\
+&\equiv T
+\end{split}
+\end{equation}
+是重言式\\
+
+\noindent\textbf{20}
+
+\textbf{i.}Alice is a mathematics major. Therefore, Alice is either a mathematics major or a computer science major.
+
+\textbf{p:}Alice is a mathematics major.
+
+\textbf{q:}Alice is a computer science major.
+
+rule of inference:$p\Rightarrow (p\vee q)$\\
+
+\textbf{ii.}Jerry is a mathematics major and a computer science major. Therefore, Jerry is a mathematics major.
+
+\textbf{p:} Jerry is a mathematics major;
+
+\textbf{q:} Jerry is a computer science major.
+
+rule of inference: $(p\vee q)\Rightarrow p$\\
+
+\textbf{iii.}If it is rainy, then the pool will be closed. It is rainy. Therefore, the pool is closed.
+
+\textbf{p:} It is rainy;
+
+\textbf{q:} The pool is closed.
+
+rule of inference: $(p \rightarrow q) \wedge p \Rightarrow q$\\
+
+\textbf{iv.}If it snows today, the university will close. The university is not closed today. Therefore, it did not snow today.
+
+\textbf{p:}It snows today;
+
+\textbf{q:}The university is closed today.
+
+rule of inference:$(p\rightarrow q)\wedge \neg q \Rightarrow \neg q$\\
+
+\textbf{v.}If I go swimming, then I will stay in the sun too long. If I stay in the sun too long, then I will sunburn. Therefore, If I go swimming, then I will sunburn.
+
+\textbf{p:} I go swimming;
+
+\textbf{q:} I stay in the sun too long;
+
+\textbf{r:} I sunburn.
+
+rule of inference:$(p\rightarrow q)\wedge (q\rightarrow r)\Rightarrow (q\rightarrow r)$\\
+
+\noindent\textbf{22}\\
+
+\textbf{i.}$A\cup(B\cup C)=(A\cup B) \cup C$ 显然，这是成立的，证明略
+
+\textbf{ii.}$A\cap(B\cap C)=(A\cap B) \cap C$ 显然，这是成立的，证明略
+
+\textbf{iii.}
+\begin{equation}
+\nonumber
+\begin{split}
+x\in A\cup (B\cap C) 
+&\Leftrightarrow x\in A \mbox{ or }x \in (B \cap C)\\
+&\Leftrightarrow (x \in A \mbox{ or } x\in B) \mbox{ and } (x \in A  \mbox{ or }  x\in C)\\
+&\Leftrightarrow x\in (A\cup B \mbox{ and }A \cup C)\\
+&\Leftrightarrow x \in (A\cup B) \cap (A \cup C)
+\end{split}
+\end{equation}
+
+\noindent\textbf{24}\\
+
+整数域内，是否是满射？
+
+\textbf{i.}$f(m,n)=m+n$ 是
+
+\textbf{ii.}$f(m,n)=m^2+n^2$ 不是
+
+\textbf{iii.}$f(m,n)=m$ 是
+
+\textbf{iv.}$f(m,n)=|n|$ 不是
+
+\textbf{v.}$f(m,n)=m-n$ 是
+
+
+\noindent\textbf{26}\\
+
+$\sum_{k=1}^{5}(k+1)=20$
+
+$\sum_{j=0}^{4}(-2)^j=11$
+
+$\sum_{i=1}^{10}3=30$
+
+$\sum_{=0}^{8}(2^{j+1}-2^{j})=511$
+
+\end{document}

@@ -1,0 +1,108 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+
+
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
+% 参考：https://blog.csdn.net/jzwong/article/details/52399112
+
+\begin{document}
+
+SA22225226 李青航
+
+\noindent \textbf{74}
+
+将分数记为两个正整数$m$和$n$的比值，即$m/n$。对于整数$i = 0,1, \cdots , n$，考察分数$10^i m / n$，并且记余数为$r_i$，显然余数的取值范围是$r_i = 0, 1, \cdots, n-1$，一共有$n$个，因此由鸽巢原理可以断定，存在整数$i, j (0 \le i < j \le n)$满足$r_i = \ r_j$
+
+之后考虑分数$(10^jm-10^im) / n$，并且记$s = j-i$，这样存在整数$q$满足$10^{i}(10^s - 1)m = nq$，并且记$q/(10^s-1)$的余数为$r$。同样可以判断$r$的取值范围是$r = 0, 1, \cdots, 10^s -2$。可以写作$q = b(10^s -1) + r$
+
+那么分数$10^i m /n$就可以展开为等比级数的和
+\begin{equation}
+\nonumber
+\begin{split}
+\frac{10^i m}{n}&=\frac{q}{10^s -1 }\\
+&=b+\frac{r}{10^s-1}\\
+&=b+ \frac{r}{10^s}+\frac{r}{10^{2s}}+\frac{r}{10^{3s}}+...+\frac{r}{10^{ns}}+....
+\end{split}
+\end{equation}
+
+所以，$10^i m/n$可以表示为循环小数的形式，循环部分的长度是$j-i$，那么$m/n$是$10^im/n$小数点左移i位，不改变循环部分，因此最终也是循环的。
+
+~\\
+
+\noindent \textbf{85}    \underline{看错了，这题没布置，多做了}
+
+\textbf{i. }将边长为1的正三角形，划分为4个相同的边长为$\frac{1}{2}$的小正三角形，第1--4个点分别在4个小正三角形中，根据鸽巢原理，存在第5个点，与其中1个点在同一个小正三角形中，两点最大距离为$\frac{1}{2}$ （分别在两个顶点）
+
+\textbf{ii. }同理，划分为边长为$\frac{1}{3}$的9个正三角形
+
+\textbf{iii. }将其划分为$m_n-1=n^2$个边长为$\frac{1}{n}$的小正三角形，在大三角形中，有$m_n$个点，根据鸽巢原理，存在两个点在同一个小三角形中，其最大距离为$\frac{1}{n}$(在三角形的两个顶点)
+
+~\\
+
+\noindent \textbf{86}
+
+考虑$K_{17} \rightarrow K_3, K_3, K_3$，并且使用红色、蓝色和绿色进行染色。
+
+任选一个点x，与它相连的边有16条，由鸽巢原理加强版可知，至少存在$\lceil \dfrac{16}{3} \rceil = 6$条边的颜色相同，不妨设为红色。
+
+那么对于与$x$相连的点$\{ x\} _{i=1}^6$，如果他们之中的连线存在一条红边，则该条边上的两点和$x$则可以构成一个$K_3$；否则（即不存在红边），由$r(3, 3) = 6$可知，6个顶点染色一定可以构造出一个蓝色或绿色的$K_3$。
+
+综上，17个点可以构造出$K_3$，不少于17个点也一定能构造出$K_3$，即$r(3,3,3) \le 17$
+
+~\\
+\noindent \textbf{95}
+
+没有限制：四位数，每一位都是5种取法，共$5^4$种
+
+(a)限制：$5\times 4 \times 3 \times 2$种
+
+(b)限制：末尾是偶数，末尾2种取法，其他三位都是5种取法，共$2\times 5^3$种
+
+(a)(b)限制：末尾是偶数2种取法，其他三位各，4，3，2种取法，共$2\times 4\times 3 \times 2$种
+
+~\\
+\noindent \textbf{101}
+
+\textbf{i. }葫芦\\
+先选一对，再选三条；或者先选三条，再选一对\\
+共$13\times {4\choose 2}\times 12 \times {4\choose 3}$种\\
+
+\textbf{ii. }顺子\\
+顺子从12345到10JQKA有10种，其中每张牌花色都有四种可能,减去40种同花顺\\
+共$10\times 4^5-40$种\\
+
+\textbf{iii. }同花\\
+4种花色，每种13张牌选5张，减去40种同花顺\\
+共$4\times {13\choose 5}-40$种\\
+
+\textbf{iv. }同花顺\\
+顺子从12345到10JQKA有10种，因为要同花色，所以只乘4,共$4\times 10=40$种\\
+
+
+\textbf{v. }两对\\
+第一步选数字，两对中的数字组合，13个数字选2个数字，有${13 \choose 2}$种\\
+第二步，第一对牌又是4种花色种选2种，有${4\choose 2}$\\
+第三步，第二对牌同理\\
+第四步，第5张牌，不能和两对中的数字一样（不然就变葫芦了）$52-8=44$
+所以，一共${13\choose 2}\times {4\choose 2}^2\times 44$种\\
+
+
+\textbf{vi. }一对\\
+13种数字，每对从4张选2张，剩下三张单牌有48，44，40种可能，除以三张牌的排列$3!$\\
+总的来说，$13\times {4\choose 2}\times (48\times 44 \times 40 )/3!$种\\
+
+~\\
+\noindent \textbf{122}
+
+\textbf{i. }走17个街区，向东北走，9次向东，8次向北，每次只有两种选择，向东或者向北,所以有
+${17 \choose 9} = {17 \choose 8}$种走法
+
+\textbf{ii. }经过水路的数量
+$${7\choose 4}{10\choose 5}+{7 \choose 3}{9\choose 4}+{7\choose 2}{9 \choose 4}$$
+
+用i. 的结果减去上式就是结果
+\end{document}

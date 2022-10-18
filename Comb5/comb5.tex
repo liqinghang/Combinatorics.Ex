@@ -1,0 +1,130 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
+% 参考：https://blog.csdn.net/jzwong/article/details/52399112
+
+\geometry{a4paper,scale=0.7}
+
+\begin{document}
+
+SA22225226 李青航
+
+\noindent \textbf{124}
+
+第一步，男人有$P(5,5)$种排列，又因为是圆形桌子，除5
+
+第二步，女人在两个男人中间插空坐，坐在男人中间，又有$P(5,5)$种排列
+
+第三步，狗在10个人之间插空坐，有10种
+
+所以总的有$P(5,5)\div 5\times P(5,5) \times 10$种
+
+~\\
+\noindent \textbf{126}
+
+总共$3+4+5=12$个元素，选11个排列，分3种情况,直接套多重集合排列公式2.4.2
+
+情况1：$\{2\cdot a, 4\cdot b,5 \cdot c\}$\\
+$$
+\dfrac{11!}{2!\cdot 4!\cdot  5!}
+$$
+
+情况2：$\{3\cdot a,3\cdot b, 5\cdot c\}$
+$$
+\dfrac{11!}{3!\cdot 3!\cdot  5!}
+$$
+
+情况3：$\{3\cdot a,4\cdot b, 4\cdot c\}$
+$$
+\dfrac{11!}{3!\cdot 4!\cdot  4!}
+$$
+
+~\\
+\noindent \textbf{132}
+
+记$y_1 = x_1 - 2, y_2 = x_2, y_3 = x_3 + 5, y_4 = x_4 - 8$，问题转化为求方程$y_1 + y_2 +y_3 +y_4 = 25$的非负整数解个数，直接套多重集合组合公式2.5.1的内容，共
+$$
+{{25+4-1}\choose{3}}={{25+4-1}\choose {25}}
+$$
+
+~\\
+\noindent \textbf{137}
+
+不带1的情况：
+$$
+{(r-1)+k-1}\choose{r-1}
+$$
+
+带1的情况：
+$$
+{(r-1)+(k-1)-1}\choose{r-1}
+$$
+
+总的情况为上述两式相加
+
+~\\
+\noindent \textbf{149}
+
+经过统计，各个字母的个数如下：\\
+\begin{center}
+\noindent('O', 9), ('I', 6), ('C', 6), ('N', 4), ('S', 4), ('L', 3), ('P', 2),\\
+ ('U', 2), ('M', 2), ('R', 2), ('A', 2), ('E', 1), ('T', 1), ('V', 1)\\
+\end{center}
+套用多重集合排列公式，排列共有
+$$
+\dfrac{45!}{9!\cdot (6!)^2 \cdot (4!)^2\cdot 3! \cdot (2!)^5}
+$$
+
+~\\
+\noindent \textbf{151}
+
+$$
+\overrightarrow{4}\overleftarrow 8\overrightarrow 3\overleftarrow 1 \overrightarrow 6\overleftarrow 7 \overleftarrow 2\overrightarrow 5
+$$
+
+根据规则，如果一个整数$k$，箭头指向一个与其相邻但比它小的整数，那么这个整数$k$就是可以移动的。
+
+所以8，3，7可以移动
+
+~\\
+\noindent \textbf{156}
+
+\textbf{i. }使用算法1
+\begin{table}[h]
+\centering
+\begin{tabular}{l}
+8         \\
+87        \\
+867       \\
+8657      \\
+48657     \\
+486573    \\
+4865723   \\
+48165723 
+\end{tabular}
+\end{table}
+
+\textbf{ii. }使用算法2
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llllllll}
+  &   &   &   &   &   & 1 &    \\
+  &   &   &   &   &   & 1 & 2  \\
+  & 3 &   &   &   &   & 1 & 2  \\
+  & 3 &   &   &   & 4 & 1 & 2  \\
+  & 3 &   & 5 &   & 4 & 1 & 2  \\
+  & 3 & 6 & 5 &   & 4 & 1 & 2  \\
+7 & 3 & 6 & 5 &   & 4 & 1 & 2  \\
+7 & 3 & 6 & 5 & 8 & 4 & 1 & 2 
+\end{tabular}
+\end{table}
+
+
+\end{document}
