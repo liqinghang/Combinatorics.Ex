@@ -1,0 +1,279 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{color}
+\geometry{a4paper,scale=0.7}
+
+\begin{document}
+    \noindent\textbf{297}
+
+    \textbf{i. }
+
+    $f_0=0$偶数，$f_1=1$奇数，$f_2=1$奇数
+
+    $f_3=2$偶数，$f_4=3$奇数，$f_5=5$奇数
+
+    $f_6=8$偶数 $\dots$
+
+    因为奇+奇=偶，奇+偶=奇，所以以3个为一组循环，当且仅当 $3|n$ 时，$f_n$ 是偶数
+
+    \textbf{ii. }
+
+    $f_n \div 3$的余数,即$f_n$ mod 3从$n=1$开始
+
+    $1,1,2,0,2,2,1,0,1,1,2,0\dots$
+
+    推测当$n=4,8,12\dots$时，余数为0(能被3整除)
+
+    由于Fibonacci 数列性质，$f_n$ mod $3=(f_{n-1}$ mod $3+f_{n-2}$ mod $3$)mod 3
+
+    所以必然4个一组继续循环下去，当且仅当 $4|n$ 时，$3|f_n$ 
+
+
+    \textbf{iii. }
+
+    使用数学归纳法证明，当$n$被6整除时，$f_n$一定被4整除。
+
+    首先，$f_0=0$能被4整除，$f_1,f_2\dots f_5$都不能被4整除，$f_6=8$能被4整除
+
+    设$f_{n-6}$被4整除，当且仅当$n$被6整除时
+
+    当$f_n$时候
+    
+    \begin{equation*}
+        \begin{aligned}
+            f_{n}
+            &=f_{n-1}+f_{n-2}\\
+            &=2f_{n-2}+f_{n-3}\\
+            &=3f_{n-3}+2f_{n-4}\\
+            &=\dots \\
+            &=8f_{n-5}+5f_{n-6}
+        \end{aligned}
+    \end{equation*}
+    
+    因此$f_n$ mod 4 $=(8f_{n-5}+5f_{n-6})$ mod 4 $=f_{n-6}$，
+    即$f_n \equiv f_{n-6}$( mod 4) ，
+    并且$f_0=0,f_1 =f_2 = 1, f_3 = 2, f_4 = 3$，
+    因而$f_n$被3整除当且仅当$n$可被4整除。
+
+    ~\\
+    \noindent\textbf{300}
+
+    证明 $n|m\Rightarrow f_n|f_m$ 其中 $n,m\in \mathbb{N} $
+
+
+    因为
+    \begin{equation*}
+        \begin{aligned}
+            f_{n}
+            &=f_{n-1}+f_{n-2}\\
+            &=2f_{n-2}+f_{n-3}\\
+            &=3f_{n-3}+2f_{n-4}\\
+            &=\dots \\
+            &=8f_{n-5}+5f_{n-6}\\
+            &=\dots\\
+            &=f_{m+1}f_{n-m}+f_{m}f_{n-m-1}
+        \end{aligned}
+    \end{equation*}
+
+    所以令$n=(k+1)m$
+    \begin{equation*}
+        \begin{aligned}
+            f_{(k+1)m}
+            &=f_{m+1}f_{km}+f_{m}f_{km-1}~~~~(\star)
+        \end{aligned}
+    \end{equation*}
+
+    由数学归纳法
+
+    设$n=km, f_m|f_{km}, k\in \mathbb{N} $，得
+
+    当$n=1$时，显然$f_m|f_m$
+
+    当$n=(k+1)m$时候,由 $(\star)$ 式得$f_m|f_{(k+1)m}$
+
+    ~\\
+    \noindent\textbf{306}
+
+    特征方程为$q^2=4$ 所以$q=\pm 2$
+
+    齐次通解为$h_n=c_1 2^n+c_2 (-2)^n$
+    
+    将初值$h_0=0,~h_1=1$带入得
+
+    \begin{equation*}
+        \begin{cases}
+            0=c_1+c_2\\
+            1=2c_1-2c_2
+        \end{cases}
+    \end{equation*}
+
+    得$c_1=\frac{1}{4},~c_2=-\frac{1}{4}$
+
+    所以
+    $$
+    h_n=\frac{1}{4}2^n-\frac{1}{4}2^n~~~~,n \in \mathbb{N} 
+    $$
+
+    ~\\
+    \noindent\textbf{307}
+
+    \begin{equation*}
+        \begin{aligned}
+            h_n
+            &=(n+2)h_{n-1}\\
+            &=(n+2)(n+1)h_{n-2}\\
+            &=(n+2)(n+1)nh_{n-3}\\
+            &=(n+2)(n+1)n(n-1)h_{n-4}\\
+            &=\dots\\
+            &=(n+2)(n+1)(n)(n-1)...h_0 \\
+            &=(n+2)!
+        \end{aligned}
+    \end{equation*}
+
+    ~\\
+    \noindent\textbf{318}
+
+    导出齐次方程的特征方程$r^2-3r=0$~~~~所以$r_1=0,~~r_2=3$
+
+    对应齐次解$h_n=c_1\cdot 0 +c_2 3^n$
+
+    设非齐次特解$h_n^{\ast}=s$
+
+    将$h_0=1,h_1=1$带入$c_2+s=1,3c_2+s=1$
+
+    所以$c_2=0,~~s=1$，最终$h_n=1$
+
+    ~\\
+    \noindent\textbf{324}
+
+    \textbf{i. }
+    
+    观察序列知道，生成函数
+    \begin{equation*}
+        \begin{aligned}
+            g(x)
+            &=x+4x^3+16x^5+\dots+4^{(n-1)/2}x^n\\
+            &=x(1+4x^2+16x^4+\dots+(2x)^{2n})\\
+            &=\frac{x}{1-(2x)^2}\\
+            &=\frac{1}{4}\bigl(\frac{1}{1-2x}-\frac{1}{1+2x}\bigr)\\
+            &=\sum_{n=0}^{\infty}\frac{2^n-(-2)^n}{4}x^n
+        \end{aligned}
+    \end{equation*}
+
+    所以$$h_n=\frac{2^n-(-2)^n}{4}~~~~,n\in\mathbb{N} $$
+
+    \textbf{ii. }
+
+    设生成函数为$g(x) = h_0 + h_1 x + h_2 x^2 + \cdots$，
+    分别用$-x$和$-x^2$乘以$g(x)$得到，
+    \begin{equation*}
+        \begin{aligned}
+            & -xg(x) = -h_0x - h_1 x^2 - h_2 x^3 - \cdots \\
+            & -x^2 g(x) = - h_0 x^2 - h_1 x^3 - h_2 x^4 - \cdots \\
+        \end{aligned}
+    \end{equation*}
+
+    三式相加，两边求和化简得，
+    $$ (1-x-x^2) g(x) = h_0 + (h_0 - h_1)x + (h_2 - h_1 - h_0) x^2 + \cdots + (h_n - h_{n-1}-h_{n-2})x^{n} + \cdots $$
+    
+    再由$h_n - h_{n-1} - h_{n-2} = 0, (n \ge 2)$知，生成函数
+    \begin{equation*}
+        \begin{aligned}
+                g(x) =& \frac{1 + 2x}{1-x-x^2} \\
+                =& \frac{r}{1-rx} + \frac{s}{1-sx} \\
+                =& \frac{(r+s) -2rs x}{1-(r+s)x + rs x^2}\\
+                =& \sum_{n=0}^{\infty} (r^{n+1} + s^{n+1}) x^n
+        \end{aligned}
+    \end{equation*}
+
+    其中$\displaystyle r = \frac{1+\sqrt{5}}{2}, s = \frac{1- \sqrt{5}}{2}, r + s = 1, rs = -1$
+
+    因此$$h_n = r^{n+1} + s^{n+1}~~~~,n\in \mathbb{N} $$
+
+    \textbf{iii. }
+
+    同\textbf{ii. }的理
+
+    设生成函数为
+    \begin{equation*}
+        \begin{aligned}
+            (1-x-9x^2-9x^3)g(x)
+            &=h_0+(1-h_0)x+(h_2-h_1-9h_0)x^2+\\
+            &~~~~(h_3-h_2-9h_1-9h_0)x^3+\dots\\
+            &=x+x^2
+        \end{aligned}
+    \end{equation*}
+
+    所以
+    \begin{equation*}
+        \begin{aligned}
+            g(x)
+            &=\frac{x+x^2}{(1-x-9x^2-9x^3)}\\
+            &=\frac{1}{3(1-3x)}-\frac{1}{12(1+3x)}-\frac{1}{4(1-x)}\\
+            &=\sum^{\infty}_{n=0}\biggl(\frac{1}{3}3^n-\frac{1}{12}(-3)^n-\frac{1}{4}\biggr)x^n
+        \end{aligned}
+    \end{equation*}
+    
+    最终
+    $$h_n=\frac{1}{3}3^n-\frac{1}{12}(-3)^n-\frac{1}{4}~~~~,n\in \mathbb{N} $$
+
+    \textbf{iv. }
+
+    同理
+
+    \begin{equation*}
+            (1-8x-16x^2)g(x)=8x-1
+    \end{equation*}
+
+    \begin{equation*}
+        \begin{aligned}
+            g(x)
+            &=\frac{8x-1}{1-8x-16x^2}\\
+            &=\frac{8x-1}{(1-4x)^2}\\
+            &=(8x-1)\sum_{n=0}^{\infty}(n+1)(4x)^{n}\\
+            &=\sum_{n=0}^{\infty}(n-1)4^nx^n
+        \end{aligned}
+    \end{equation*}
+
+    最终
+
+    $$h_n=(n-1)4^n$$
+
+    \textbf{vi. }
+
+    设生成函数为$g(x) = h_0 + h_1 x + h_2 x^2 + \cdots$，
+    分别用$-5x$、$6x^2$、$4x^3$和$-8x^4$乘以g(x)化简得到，
+
+    \begin{equation*}
+        \begin{aligned}
+            g(x) =& \frac{x-4x^2+3x^3}{1-5x+6x^2+4x^3-8x^4} \\
+            =& \frac{x-4x^2+3x^3}{(1-2x)^3(1+x)} \\
+            =& \frac{ax^2 + bx + c}{(1-2x)^3} + \frac{d}{1+x} \\
+            =& \frac{(a-8d)x^3 + (a+b+12d)x^2 + (b+c-6d)x + (c+d)}{(1-2x)^3(1+x)} \\
+        \end{aligned}
+    \end{equation*}
+
+    设
+
+    \begin{equation*}
+        \begin{cases}
+            a-8d = 3 \\
+            a+b+12d = -4 \\
+            b+c-6d = 1 \\
+            c+d = 0
+        \end{cases}
+    \end{equation*}
+
+    解得，$a = \frac{17}{27}, b = -\frac{29}{27}, c = -\frac{8}{27}, d = \frac{8}{27}$。
+
+    $$g(x) = \frac{1}{27} \frac{17x^2 - 29 x - 8}{(1-2x)^3} + \frac{8}{(1+x)}$$
+
+    $h_n$略
+
+\end{document}
