@@ -1,0 +1,134 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{color}
+\geometry{a4paper,scale=0.7}
+
+\begin{document}
+    SA22225226 李青航
+
+    \noindent\textbf{354}
+
+    组合意义：把 $p$ 个元素分为 $k$ 组（非空），共有 $S(p,k)$ 种分法
+
+    \textbf{i. }
+    
+    $S(n, 1) = 1,~~~~(n \ge 1)$
+
+    把$n$个元素分为非空的1组，只有一种分法
+
+    \textbf{ii. }
+    
+    $S(n, 2) = 2^{n-1} - 1,~~~~(n \ge 2)$
+
+    把$n$个元素，分为非空的两组。
+    先选出一部分作为一组，剩下作为另外一组。
+
+    先选一部分方法数$\sum^{n}_{k=0}{n\choose k}=2^n$ ；
+    选一部分和选他的补集一样，所以再除以2；再减去非空选0个这种情况，减1
+
+    \textbf{iii. }
+
+    $S(n, n - 1) = {n\choose 2}~~~~, (n\ge 1)$
+
+    有且仅有2个人一组，其他是1个人一组，先选2个人在一组
+    方法数 ${n\choose 2}$ 剩余的自动一人一组了
+
+    \textbf{iv. }
+
+    $S(n, n - 2) = {n\choose 3}+3{n\choose 4},~~~~(n\ge 2)$
+
+    情况1，分组元素数为$3, 1, 1, 1, 1\dots$
+    共$n \choose 3$种
+
+    情况2，分组元素数为$2,2,1,1,1\dots$
+    先选出4个元素$n\choose 4$种，4个元素可分为${4\choose 2} \div 2$=3种
+
+    ~\\
+    \noindent\textbf{369}
+
+    反证：
+    
+    如果自共轭分拆数，当$n\ge 2$只有1部分，
+    Frrers图就只有1行（或1列）,关于对角线翻转后，变为1列（1行）
+    就不关于对角线对称
+
+    ~\\
+    \noindent\textbf{374}
+
+    $\sqrt{x^2-6x+1}$的麦克劳林 展开$1-3x-4x^2-12x^3-44x^4+\cdots$
+
+    \begin{equation*}
+        \begin{aligned}
+            \sum_{k=0}^{\infty} R_n x^n =& \frac{1}{2x} (-(x-1) - (1-3x-4x^2-12x^3-44x^4 + \cdots)) \\
+            =& \frac{2x+4x^2+ 12x^3 + 44x^4 + \cdots}{2x} \\
+            =& 1 + 2x + 6x^2 + 22 x^3 + \cdots
+            \end{aligned}
+    \end{equation*}
+
+    综上，有$R_0 = 1, R_1 = 2, R_2 = 6, R_3 = 22\dots$
+
+    \noindent\textbf{378}
+
+    $X=\{x_1,x_2,\dots x_6\},~~Y=\{y_1,y_2,\dots y_6\}$
+
+    \usetikzlibrary {graphs.standard}
+
+    \begin{tikzpicture}
+        \graph {
+      subgraph I_nm [n=6, m=6];
+    
+      V 1 -- { W 1, W 2, W 3, W 6 };
+      V 2 -- { W 2, W 3, W 5, W 6};
+      V 3 -- { W 2, W 3, W 4, W 5 };
+      V 4 -- { W 6 };
+      V 5 -- { W 4 , W 5 , W 6};
+      V 6 -- { W 1, W 2,W 5,W 6};
+    };
+    \end{tikzpicture}
+
+    一个匹配\{1,1\};\{2,2\};\{3,3\};\{4,6\};\{5,4\};\{6,5\}
+
+    \noindent\textbf{379}
+
+    % \usepackage{booktabs}
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|} 
+    \toprule
+    $b_1$ & $w_1$ & $b_2$& x & x & $w_2$  \\ 
+    \hline
+    x & $b_3$ & $w_4$ & x & $w_5$ & $b_4$  \\ 
+    \hline
+    x & $w_6$ & $b_5$ & $w_7$ & $b_6$ & x  \\ 
+    \hline
+    x & x & x & x & x & $b_7$  \\ 
+    \hline
+    x & x & x &$ w_8$ & $b_8$ & $w_9$  \\ 
+    \hline
+    $b_9$ & $w_{10}$ & x & x & $w_3$ & $b_{10}$  \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    线太乱，略
+    \begin{tikzpicture}
+        \graph {
+      subgraph I_nm [n=10, m=10];
+
+    };
+    \end{tikzpicture}
+
+    一个覆盖是 $b_1w_1,b_3w_6,b_2w_4,b_5w_7\dots$总之存在
+
+    \noindent\textbf{378}
+
+    就是二分图的最大匹配，最大匹配7
+\end{document}

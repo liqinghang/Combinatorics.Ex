@@ -1,0 +1,183 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{color}
+\geometry{a4paper,scale=0.7}
+
+\begin{document}
+    SA22225226 李青航
+
+    \noindent\textbf{580}
+
+    图1最大流最小割9
+
+    图2最大流最小割12
+
+    图3最大流最小割9
+
+    ~\\
+    \noindent\textbf{599}
+
+    我们有
+$$
+P(C_1,x)=0
+$$
+$$P(C_2,x)=P(P_2,x)-P(C_1,x)=P(P_2,x)-0=P(P_2,x)$$
+$$P(C_3,x)=P(P_3,x)-P(C_2,x)=P(P_3,x)-P(P_2,x)
+$$
+$$P(C_4,x)=P(P_4,x)-P(P_3,x)+P(P_2,x)$$
+$$P(C_5,x)=P(P_5,x)-P(P_4,x)+P(P_3,x)-P(P_2,x)
+$$
+
+推理得
+\begin{equation*}
+    \begin{aligned}
+        P(C_n,x)
+        &=P(P_n,x)-P(P_{n-1},x)+\cdots+(-1)^nP(P_2,x)\\
+        &=x(x-1)^{n-1}-x(x-1)^{n-2}+\cdots+(-1)^nx(x-1)\\
+        &=\frac{x(x-1)^{n-1}+(-1)^nx}{1+(x-1)^{-1}}\\
+        &=(x-1)^n+(-1)^n(x-1)
+    \end{aligned}
+\end{equation*}
+
+    ~\\
+    \noindent\textbf{645}
+
+    \textbf{i.}
+    \begin{equation*}
+        f\circ g=
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6  \\
+            2 & 5 & 3 & 4 & 1 & 6  \\
+        \end{pmatrix}
+    \end{equation*}
+
+    \begin{equation*}
+        g\circ f=
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6  \\
+            1 & 2 & 5 & 3 & 4 & 6  \\
+        \end{pmatrix}
+    \end{equation*}
+
+    \textbf{ii.}
+
+    \begin{equation*}
+        f^{-1}=
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6  \\
+            4 & 3 & 6 & 2 & 5 & 1  \\
+        \end{pmatrix}
+    \end{equation*}
+
+    \begin{equation*}
+        g^{-1}=
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6  \\
+            6 & 4 & 1 & 5 & 2 & 3  \\
+        \end{pmatrix}
+    \end{equation*}
+
+    \textbf{iii.}
+
+    \begin{equation*}
+        f^{2}=
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6  \\
+            3 & 1 & 4 & 6 & 5 & 2  \\
+        \end{pmatrix}
+    \end{equation*}
+
+    \begin{equation*}
+        f^{5}=
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6  \\
+            1 & 2 & 3 & 4 & 5 & 6  \\
+        \end{pmatrix}
+    \end{equation*}
+
+    \textbf{iv.}
+
+    \begin{equation*}
+        f\circ g\circ f=
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6  \\
+            6 & 4 & 5 & 2 & 1 & 3  \\
+        \end{pmatrix}
+    \end{equation*}
+
+    \textbf{v.}
+
+    \begin{equation*}
+        g^3=f\circ g^3\circ f^{-1}=
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6  \\
+            1 & 2 & 5 & 3 & 4 & 6  \\
+        \end{pmatrix}
+    \end{equation*}
+
+    ~\\
+    \noindent\textbf{657}
+
+    \textbf{i.}
+
+    \begin{equation*}
+        f\ast \mathbf{c}=(R,B,R,B,R,R)
+    \end{equation*}
+
+    \textbf{ii.}
+
+    \begin{equation*}
+        f^{-1}\ast \mathbf{c}=(R,R,B,R,R,B)
+    \end{equation*}
+    
+    \textbf{iii.}
+
+    \begin{equation*}
+        g\ast \mathbf{c}=(R,R,R,R,B,B)
+    \end{equation*}
+
+    \textbf{iv.}
+
+    \begin{equation*}
+        (g\circ f)\ast \mathbf{c}=(R,B,R,R,B,R)
+    \end{equation*}
+
+    \begin{equation*}
+        (f\circ g)\ast \mathbf{c}=(R,R,B,R,B,R)
+    \end{equation*}
+
+    \textbf{v.}
+    \begin{equation*}
+        (g^2\circ f)\ast \mathbf{c}=(R,R,R,B,B,R)
+    \end{equation*}
+
+    ~\\
+    \noindent\textbf{662}
+    \begin{equation*}
+        \frac{p^4+2p^3p^2+2p}{8}
+    \end{equation*}
+
+    ~\\
+    \noindent\textbf{676}
+
+    \begin{equation*}
+        \begin{matrix}
+            \rho^0 \quad 6\quad  729\\ \rho^1\quad 1 \quad 3 \\ \rho^2\quad 2 \quad 9\\ \rho^3 \quad 3\quad  27 
+\\ \rho^4 \quad2 \quad 9\\ \rho^5\quad 1 \quad 3 \\ \sigma_i \quad 3 \quad 27\\ \tau_i\quad 4\quad 81
+        \end{matrix}
+    \end{equation*}
+
+    \begin{equation*}
+        \frac{1}{|G|}\sum 3^{c(g)}=\frac{1104}{12}=92
+    \end{equation*}
+
+
+
+
+\end{document}

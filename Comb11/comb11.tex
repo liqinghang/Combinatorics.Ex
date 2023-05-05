@@ -1,0 +1,158 @@
+\documentclass[UTF8]{ctexart}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{color}
+\geometry{a4paper,scale=0.7}
+
+\begin{document}
+    SA22225226 李青航
+
+    \noindent\textbf{390}
+
+    2种，显然让每个集合选第一个数代表（或者第二个数），刚好相异。
+    如果第一，第二个数交替代表，必会有不相异的，所以不行。
+
+    当 $n$ set时，也是2种
+
+    ~\\
+    \noindent\textbf{399}
+
+    1. $A\rightarrow a, B\rightarrow a, 
+    C\rightarrow b, D\rightarrow d, a\not \rightarrow B$
+
+    2. $B\rightarrow d, d\not \rightarrow D$
+
+    3. $D\rightarrow b, b\not \rightarrow C $
+
+    4. $C\rightarrow a, a\not \rightarrow A$
+
+    5. $A \rightarrow b, b\not \rightarrow A$
+
+    6. $A \rightarrow c$
+
+    到6. 没有拒绝发生结束。稳定的完美婚姻为
+
+    $$A \longleftrightarrow  c, C \longleftrightarrow a, D \longleftrightarrow b, B\longleftrightarrow d$$
+
+    \noindent\textbf{405}
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|cccc} 
+        \toprule
+        $\oplus$ & 0 & 1 & 2 & 3  \\ 
+        \hline
+        0 & 0 & 1 & 2 & 3  \\
+        1 & 1 & 2 & 3 & 0  \\
+        2 & 2 & 3 & 0 & 1  \\
+        3 & 3 & 0 & 1 & 2  \\
+        \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|cccc} 
+        \toprule
+        $\otimes$  & 0 & 1 & 2 & 3  \\ 
+        \hline
+        0 & 0 & 0 & 0 & 0  \\
+        1 & 0 & 1 & 2 & 3  \\
+        2 & 0 & 2 & 0 & 2  \\
+        3 & 0 & 3 & 2 & 1  \\
+        \bottomrule
+        \end{tabular}
+        \end{table}
+
+     ~\\
+    \noindent\textbf{421}
+
+    将$Z_2$的两个取值0,1带入，$0^3+0+1=1, 1^3+1+1=3$ ，因此
+    在$Z_2$中没有根
+
+    把多项式的一个根i加到$Z_2$中，得到$\rm{i^3+i+1}$，或等价地
+    $$ \rm{i^3=-i-1=1+i}$$
+    所得域中的元素是
+    $$\{a+b\rm{i} +c\rm{i}^2 \}$$其中$\{a,b,c\}$在$Z_2$中
+    
+    \textbf{i. }
+    $\rm{(1+i)+(1+i+i^2)=i^2}$
+
+    \textbf{ii. }
+    $\rm{(1+i^2)+(1+i^2)=0}$
+
+    \textbf{iii. }
+    $\rm{i^{-1}=i^2+1}$
+
+    \textbf{iv. }
+    $\rm{i^2 \times (1+i+i^2)=1}$
+
+    \textbf{v. }
+    $\rm{(1+i)(1+i+i^2)=i}$
+
+    \textbf{vi. }
+    $\rm{(1+i)^{-1}=}$
+
+    ~\\
+    \noindent\textbf{423}
+
+    有$b = 20, v = 18, k = 9,  r = 10, bk=vr$
+    $$\lambda=\frac{r(k-1)}{v-1}=\frac{80}{17}$$
+
+    不存在
+
+    ~\\
+    \noindent\textbf{442}
+
+    n=6,r=5,编程得
+
+    [0, 1, 2, 3, 4, 5]
+
+    [5, 0, 1, 2, 3, 4]
+
+    [4, 5, 0, 1, 2, 3]
+
+    [3, 4, 5, 0, 1, 2]
+
+    [2, 3, 4, 5, 0, 1]
+
+    [1, 2, 3, 4, 5, 0]
+
+    ~\\
+    \noindent\textbf{450}
+
+    Construct 2 MOLS of order 8
+
+    $$\begin{bmatrix}
+0&2&6&4&5&7&3&1\\
+1&3&7&5&4&6&2&0\\
+2&0&4&6&7&5&1&3\\
+3&1&5&7&6&4&0&2\\
+4&6&2&0&1&3&7&5\\
+5&7&3&1&0&2&6&4\\
+6&4&0&2&3&1&5&7\\
+7&5&1&3&2&0&4&6\\
+    \end{bmatrix}$$
+
+    $$
+    \begin{bmatrix}
+0&3&4&7&1&2&5&6\cr
+1&2&5&6&0&3&4&7\cr
+2&1&6&5&3&0&7&4\cr
+3&0&7&4&2&1&6&5\cr
+4&7&0&3&5&6&1&2\cr
+5&6&1&2&4&7&0&3\cr
+6&5&2&1&7&4&3&0\cr
+7&4&3&0&6&5&2&1\cr
+    \end{bmatrix}
+    $$
+
+    
+
+
+\end{document}
